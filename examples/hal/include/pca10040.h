@@ -141,7 +141,7 @@ extern "C" {
 #define SER_CON_SPIS_MOSI_PIN       2     // SPI MOSI signal.
 #define SER_CON_SPIS_MISO_PIN       26    // SPI MISO signal.
 #define SER_CON_SPIS_CSN_PIN        23    // SPI CSN signal.
-#define SER_CON_SPIS_RDY_PIN        25    // SPI READY GPIO pin number.
+//#define SER_CON_SPIS_RDY_PIN        25    // SPI READY GPIO pin number. //mluo
 #define SER_CON_SPIS_REQ_PIN        24    // SPI REQUEST GPIO pin number.
 
 #define SER_CONN_CHIP_RESET_PIN     11    // Pin used to reset connectivity chip
@@ -151,7 +151,7 @@ extern "C" {
 #define ARDUINO_SCL_PIN             27    // SCL signal pin
 #define ARDUINO_SDA_PIN             26    // SDA signal pin
 #define ARDUINO_AREF_PIN            2     // Aref pin
-#define ARDUINO_13_PIN              25    // Digital pin 13
+//#define ARDUINO_13_PIN              25    // Digital pin 13 //mluo
 #define ARDUINO_12_PIN              24    // Digital pin 12
 #define ARDUINO_11_PIN              23    // Digital pin 11
 #define ARDUINO_10_PIN              22    // Digital pin 10
