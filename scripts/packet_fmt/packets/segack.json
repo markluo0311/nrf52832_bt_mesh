@@ -1,0 +1,105 @@
+{
+    "__packet__": true,
+    "name": "seg_ack",
+    "type": "absolute",
+    "fields": [
+        {
+            "name": "ivi",
+            "module": "net",
+            "width":  1,
+            "doc": "IV index least significant bit",
+            "visible": true
+        },
+        {
+            "name": "nid",
+            "module": "net",
+            "width":  7,
+            "doc": "least significant bits of the Network Identifier",
+            "visible": true
+        },
+        {
+            "name": "ctl",
+            "module": "net",
+            "width":  1,
+            "doc": "control message bit",
+            "visible": true
+        },
+        {
+            "name": "ttl",
+            "module": "net",
+            "width":  7,
+            "doc": "time-to-live value",
+            "visible": true
+        },
+        {
+            "name": "seq",
+            "module": "net",
+            "width": 24,
+            "doc": "message sequence number",
+            "visible": true
+        },
+        {
+            "name": "src",
+            "module": "net",
+            "width": 16,
+            "doc": "source address",
+            "visible": true
+        },
+        {
+            "name": "dst",
+            "module": "net",
+            "width": 16,
+            "doc": "destination address",
+            "visible": true
+        },
+        {
+            "name": "seg",
+            "module": "trs",
+            "width":  1,
+            "doc": "segmentation bit",
+            "visible": true
+        },
+        {
+            "name": "opcode",
+            "module": "trs",
+            "width":  7,
+            "doc": "transport control opcode",
+            "visible": true
+        },
+        {
+            "name": "obo",
+            "module": "trs",
+            "width":  1,
+            "doc": "'on behalf of' flag",
+            "visible": true
+        },
+        {
+            "name": "seqzero",
+            "module": "trs",
+            "width":  13,
+            "doc": "least significant bits of SeqAuth",
+            "visible": true
+        },
+        {
+            "name": "rfu",
+            "module": "trs",
+            "width":  2,
+            "doc": "reserved for future use",
+            "visible": false
+        },
+        {
+            "name": "block_ack",
+            "module": "trs",
+            "width":  32,
+            "doc": "block acknowledgement field",
+            "visible": true
+        },
+        {
+            "name": "mic",
+            "module": "net",
+            "width":  64,
+            "doc": "network MIC",
+            "visible": false
+        }
+    ]
+}

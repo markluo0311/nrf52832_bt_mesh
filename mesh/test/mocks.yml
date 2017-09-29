@@ -1,0 +1,13 @@
+:cmock:
+    :plugins:
+        - :ignore
+        - :ignore_arg
+        - :array
+        - :callback
+        - :return_thru_ptr
+    :mock_prefix: ""
+    :mock_suffix: "_mock"
+    :mock_path: "./mocks"
+    :verbosity: 0
+    :treat_externs: :include
+colour: true

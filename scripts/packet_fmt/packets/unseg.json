@@ -1,0 +1,77 @@
+{
+    "__packet__": true,
+    "name": "unseg",
+    "type": "variable",
+    "fields": [
+        {
+            "name": "ivi",
+            "module": "net",
+            "width":  1,
+            "doc": "IV index least significant bit",
+            "visible": true
+        },
+        {
+            "name": "nid",
+            "module": "net",
+            "width":  7,
+            "doc": "least significant bits of the Network Identifier",
+            "visible": true
+        },
+        {
+            "name": "ctl",
+            "module": "net",
+            "width":  1,
+            "doc": "control message bit",
+            "visible": true
+        },
+        {
+            "name": "ttl",
+            "module": "net",
+            "width":  7,
+            "doc": "time-to-live value",
+            "visible": true
+        },
+        {
+            "name": "seq",
+            "module": "net",
+            "width": 24,
+            "doc": "message sequence number",
+            "visible": true
+        },
+        {
+            "name": "src",
+            "module": "net",
+            "width": 16,
+            "doc": "source address",
+            "visible": true
+        },
+        {
+            "name": "dst",
+            "module": "net",
+            "width": 16,
+            "doc": "destination address",
+            "visible": true
+        },
+        {
+            "name": "seg",
+            "module": "trs",
+            "width":  1,
+            "doc": "segmentation bit",
+            "visible": true
+        },
+        {
+            "name": "akf",
+            "module": "trs",
+            "width":  1,
+            "doc": "application key flag",
+            "visible": true
+        },
+        {
+            "name": "aid",
+            "module": "trs",
+            "width":  6,
+            "doc": "application key identifier",
+            "visible": true
+        }
+    ]
+}

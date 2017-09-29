@@ -1,0 +1,367 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="examples" target="8" version="2">
+  <project Name="light_control_client">
+    <configuration
+      Name="Common"
+      arm_linker_heap_size="1024"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="1024"
+      arm_target_interface_type="SWD"
+      c_user_include_directories="light_control/client/include"
+      debug_target_connection="J-Link"
+      linker_output_format="hex"
+      linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
+      project_dependencies="mesh"
+      project_directory="."
+      project_type="Executable" />
+    <folder Name="Application">
+      <file file_name="light_control/client/src/main.c" />
+      <file file_name="light_control/client/src/provisioner.c" />
+    </folder>
+    <folder Name="Mesh Access">
+      <file file_name="../mesh/src/access/access.c" />
+      <file file_name="../mesh/src/access/access_publish.c" />
+      <file file_name="../mesh/src/access/access_reliable.c" />
+      <file file_name="../mesh/src/access/device_state_manager.c" />
+      <file file_name="../mesh/src/access/nrf_mesh_node_config.c" />
+    </folder>
+    <configuration
+      Name="nRF52832_XXAA Target Settings"
+      linker_section_placement_macros="FLASH_START=0x1f000;SRAM_START=0x200022d8" />
+    <folder Name="Mesh Example SDK">
+      <file file_name="nrf_mesh_sdk.c" />
+      <file file_name="hal/src/simple_hal.c" />
+    </folder>
+    <folder Name="Simple On/Off Model - Client">
+      <file file_name="models/simple_on_off/src/simple_on_off_client.c" />
+    </folder>
+    <folder Name="Config Model - Client">
+      <file file_name="../mesh/models/config/src/composition_data.c" />
+      <file file_name="../mesh/models/config/src/config_client.c" />
+      <file file_name="../mesh/models/config/src/packed_index_list.c" />
+    </folder>
+  </project>
+  <project Name="light_control_server">
+    <configuration
+      Name="Common"
+      arm_linker_heap_size="1024"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="1024"
+      arm_target_interface_type="SWD"
+      c_user_include_directories="light_control/server/include"
+      debug_target_connection="J-Link"
+      linker_output_format="hex"
+      linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
+      project_dependencies="mesh"
+      project_directory="."
+      project_type="Executable" />
+    <folder Name="Application">
+      <file file_name="light_control/server/src/main.c" />
+    </folder>
+    <folder Name="Mesh Access">
+      <file file_name="../mesh/src/access/access.c" />
+      <file file_name="../mesh/src/access/access_publish.c" />
+      <file file_name="../mesh/src/access/access_reliable.c" />
+      <file file_name="../mesh/src/access/device_state_manager.c" />
+      <file file_name="../mesh/src/access/nrf_mesh_node_config.c" />
+    </folder>
+    <folder Name="Config Model - Server">
+      <file file_name="../mesh/models/config/src/composition_data.c" />
+      <file file_name="../mesh/models/config/src/config_server.c" />
+      <file file_name="../mesh/models/config/src/packed_index_list.c" />
+    </folder>
+    <folder Name="Simple On/Off Model - Server">
+      <file file_name="models/simple_on_off/src/simple_on_off_server.c" />
+    </folder>
+    <configuration
+      Name="nRF51422_XXAC Target Settings"
+      c_preprocessor_definitions="BOARD_PCA10031" />
+    <folder Name="Mesh Example SDK">
+      <file file_name="hal/src/simple_hal.c" />
+      <file file_name="nrf_mesh_sdk.c" />
+    </folder>
+  </project>
+  <project Name="pb_remote_client">
+    <configuration
+      Name="Common"
+      arm_linker_heap_size="1024"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="1024"
+      arm_target_interface_type="SWD"
+      c_user_include_directories="pb_remote_client/include;../mesh/models/pb_remote/include"
+      debug_target_connection="J-Link"
+      linker_output_format="hex"
+      linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
+      project_dependencies="mesh"
+      project_directory="."
+      project_type="Executable" />
+    <folder Name="Application">
+      <file file_name="pb_remote_client/src/main.c" />
+    </folder>
+    <folder Name="PB-Remote Client">
+      <file file_name="../mesh/models/pb_remote/src/pb_remote_client.c" />
+    </folder>
+    <folder Name="Mesh Example SDK">
+      <file file_name="hal/src/simple_hal.c" />
+      <file file_name="nrf_mesh_sdk.c" />
+    </folder>
+    <folder Name="Mesh Access">
+      <file file_name="../mesh/src/access/access.c" />
+      <file file_name="../mesh/src/access/access_publish.c" />
+      <file file_name="../mesh/src/access/access_reliable.c" />
+      <file file_name="../mesh/src/access/device_state_manager.c" />
+      <file file_name="../mesh/src/access/nrf_mesh_node_config.c" />
+    </folder>
+  </project>
+  <project Name="pb_remote_server">
+    <configuration
+      Name="Common"
+      arm_linker_heap_size="1024"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="1024"
+      arm_target_interface_type="SWD"
+      c_user_include_directories="pb_remote_server/include;../mesh/models/pb_remote/include"
+      debug_target_connection="J-Link"
+      linker_output_format="hex"
+      linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
+      project_dependencies="mesh"
+      project_directory="."
+      project_type="Executable" />
+    <folder Name="Application">
+      <file file_name="pb_remote_server/src/main.c" />
+    </folder>
+    <folder Name="Mesh Access">
+      <file file_name="../mesh/src/access/access.c" />
+      <file file_name="../mesh/src/access/access_publish.c" />
+      <file file_name="../mesh/src/access/access_reliable.c" />
+      <file file_name="../mesh/src/access/device_state_manager.c" />
+      <file file_name="../mesh/src/access/nrf_mesh_node_config.c" />
+    </folder>
+    <folder Name="Mesh Example SDK">
+      <file file_name="hal/src/simple_hal.c" />
+      <file file_name="nrf_mesh_sdk.c" />
+    </folder>
+    <folder Name="PB-Remote Server">
+      <file file_name="../mesh/models/pb_remote/src/pb_remote_server.c" />
+    </folder>
+  </project>
+  <project Name="serial">
+    <configuration
+      Name="Common"
+      arm_linker_heap_size="1024"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="1024"
+      arm_target_interface_type="SWD"
+      c_user_include_directories="serial/include;../mesh/include/serial"
+      debug_target_connection="J-Link"
+      linker_output_format="hex"
+      linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
+      project_dependencies="mesh"
+      project_directory="."
+      project_type="Executable" />
+    <folder Name="Application">
+      <file file_name="serial/src/main.c" />
+    </folder>
+    <folder Name="Mesh Serial">
+      <file file_name="../mesh/src/serial/nrf_mesh_serial.c" />
+      <file file_name="../mesh/src/serial/serial_bearer.c" />
+      <file file_name="../mesh/src/serial/serial.c" />
+      <file file_name="../mesh/src/serial/serial_handler_access.c" />
+      <file file_name="../mesh/src/serial/serial_handler_common.c" />
+      <file file_name="../mesh/src/serial/serial_handler_device.c" />
+      <file file_name="../mesh/src/serial/serial_handler_mesh.c" />
+      <file file_name="../mesh/src/serial/serial_handler_models.c" />
+      <file file_name="../mesh/src/serial/serial_handler_prov.c" />
+      <file file_name="../mesh/src/serial/serial_uart.c" />
+      <file file_name="../mesh/src/serial/serial_handler_app.c" />
+      <file file_name="../mesh/src/serial/serial_handler_config.c" />
+      <file file_name="../mesh/src/serial/serial_handler_dfu.c" />
+      <file file_name="../mesh/src/serial/serial_handler_openmesh.c" />
+    </folder>
+    <folder Name="Mesh Access">
+      <file file_name="../mesh/src/access/device_state_manager.c" />
+      <file file_name="../mesh/src/access/access.c" />
+      <file file_name="../mesh/src/access/access_publish.c" />
+      <file file_name="../mesh/src/access/access_reliable.c" />
+      <file file_name="../mesh/src/access/nrf_mesh_node_config.c" />
+    </folder>
+    <folder Name="Mesh Example SDK">
+      <file file_name="hal/src/simple_hal.c" />
+      <file file_name="nrf_mesh_sdk.c" />
+    </folder>
+  </project>
+  <project Name="mesh">
+    <configuration Name="Common" project_type="Library" />
+    <folder Name="Mesh Core">
+      <file file_name="../mesh/src/core/aes.c" />
+      <file file_name="../mesh/src/core/aes_cmac.c" />
+      <file file_name="../mesh/src/core/beacon.c" />
+      <file file_name="../mesh/src/core/bearer_adv.c" />
+      <file file_name="../mesh/src/core/bearer.c" />
+      <file file_name="../mesh/src/core/bearer_event.c" />
+      <file file_name="../mesh/src/core/cache.c" />
+      <file file_name="../mesh/src/core/ccm_soft.c" />
+      <file file_name="../mesh/src/core/enc.c" />
+      <file file_name="../mesh/src/core/event.c" />
+      <file file_name="../mesh/src/core/fifo.c" />
+      <file file_name="../mesh/src/core/flash_manager.c" />
+      <file file_name="../mesh/src/core/flash_manager_defrag.c" />
+      <file file_name="../mesh/src/core/flash_manager_internal.c" />
+      <file file_name="../mesh/src/core/hal.c" />
+      <file file_name="../mesh/src/core/internal_event.c" />
+      <file file_name="../mesh/src/core/log.c" />
+      <file file_name="../mesh/src/core/mesh_flash.c" />
+      <file file_name="../mesh/src/core/msg_cache.c" />
+      <file file_name="../mesh/src/core/msqueue.c" />
+      <file file_name="../mesh/src/core/net_beacon.c" />
+      <file file_name="../mesh/src/core/net_state.c" />
+      <file file_name="../mesh/src/core/network.c" />
+      <file file_name="../mesh/src/core/nrf_flash.c" />
+      <file file_name="../mesh/src/core/nrf_mesh.c" />
+      <file file_name="../mesh/src/core/nrf_mesh_configure.c" />
+      <file file_name="../mesh/src/core/nrf_mesh_keygen.c" />
+      <file file_name="../mesh/src/core/nrf_mesh_opt.c" />
+      <file file_name="../mesh/src/core/nrf_mesh_utils.c" />
+      <file file_name="../mesh/src/core/packet_buffer.c" />
+      <file file_name="../mesh/src/core/packet.c" />
+      <file file_name="../mesh/src/core/packet_mgr.c" />
+      <file file_name="../mesh/src/core/radio.c" />
+      <file file_name="../mesh/src/core/radio_config.c" />
+      <file file_name="../mesh/src/core/rand.c" />
+      <file file_name="../mesh/src/core/replay_cache.c" />
+      <file file_name="../mesh/src/core/ticker.c" />
+      <file file_name="../mesh/src/core/timer.c" />
+      <file file_name="../mesh/src/core/timer_scheduler.c" />
+      <file file_name="../mesh/src/core/timeslot.c" />
+      <file file_name="../mesh/src/core/toolchain.c" />
+      <file file_name="../mesh/src/core/transport.c" />
+      <file file_name="../mesh/src/core/uri.c" />
+      <file file_name="../mesh/src/core/queue.c" />
+    </folder>
+    <folder Name="Mesh DFU">
+      <file file_name="../mesh/src/dfu/nrf_mesh_dfu.c" />
+    </folder>
+    <folder Name="Mesh Provisioning">
+      <file file_name="../mesh/src/prov/nrf_mesh_prov.c" />
+      <file file_name="../mesh/src/prov/prov_beacon.c" />
+      <file file_name="../mesh/src/prov/prov_bearer_adv.c" />
+      <file file_name="../mesh/src/prov/provisioning.c" />
+      <file file_name="../mesh/src/prov/prov_provisionee.c" />
+      <file file_name="../mesh/src/prov/prov_provisioner.c" />
+      <file file_name="../mesh/src/prov/prov_utils.c" />
+    </folder>
+    <folder Name="uECC">
+      <file file_name="../lib/micro-ecc/uECC.c">
+        <configuration
+          Name="Common"
+          c_preprocessor_definitions="uECC_OPTIMIZATION_LEVEL=2;uECC_SUPPORTS_secp160r1=0;uECC_SUPPORTS_secp192r1=0;uECC_SUPPORTS_secp224r1=0;uECC_SUPPORTS_secp256r1=1;uECC_SUPPORTS_secp256k1=0;uECC_SUPPORT_COMPRESSED_POINT=0"
+          gcc_omit_frame_pointer="Yes" />
+      </file>
+    </folder>
+    <folder Name="System Files">
+      <file file_name="$(StudioDir)/source/thumb_crt0.s" />
+      <file file_name="../toolchain/ses/ses_nrf51_startup.s">
+        <configuration
+          Name="nRF52832_XXAA Debug"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="nRF52832_XXAA Release"
+          build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="../toolchain/ses/ses_nrf52_startup.s">
+        <configuration
+          Name="nRF51422_XXAC Debug"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="nRF51422_XXAC Release"
+          build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="../toolchain/system_nrf51422.c">
+        <configuration
+          Name="nRF52832_XXAA Debug"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="nRF52832_XXAA Release"
+          build_exclude_from_build="Yes" />
+      </file>
+      <file file_name="../toolchain/system_nrf52.c">
+        <configuration
+          Name="nRF51422_XXAC Debug"
+          build_exclude_from_build="Yes" />
+        <configuration
+          Name="nRF51422_XXAC Release"
+          build_exclude_from_build="Yes" />
+      </file>
+    </folder>
+    <folder Name="SEGGER RTT">
+      <file file_name="../lib/rtt/src/SEGGER_RTT.c" />
+      <file file_name="../lib/rtt/src/SEGGER_RTT_printf.c" />
+    </folder>
+  </project>
+  <configuration
+    Name="nRF51422_XXAC Debug"
+    inherited_configurations="Common Debug Settings;nRF51422_XXAC Target Settings" />
+  <configuration
+    Name="nRF51422_XXAC Release"
+    inherited_configurations="nRF51422_XXAC Target Settings;Common Release Settings" />
+  <configuration
+    Name="nRF52832_XXAA Debug"
+    inherited_configurations="nRF52832_XXAA Target Settings;Common Debug Settings" />
+  <configuration
+    Name="nRF52832_XXAA Release"
+    inherited_configurations="nRF52832_XXAA Target Settings;Common Release Settings" />
+  <configuration
+    Name="nRF51422_XXAC Target Settings"
+    arm_architecture="v6M"
+    arm_core_type="Cortex-M0"
+    arm_endian="Little"
+    arm_fp_abi="Soft"
+    arm_fpu_type="None"
+    arm_target_device_name="nRF51422_xxAC"
+    c_preprocessor_definitions="NRF51;NRF51422;S130;NRF_SD_BLE_API_VERSION=3;BOARD_PCA10028"
+    c_user_include_directories="../lib/softdevice/s130/headers"
+    debug_additional_load_file="$(SolutionDir)/../lib/softdevice/s130/hex/s130_nrf51_2.0.1_softdevice.hex"
+    debug_target_connection="J-Link"
+    hidden="Yes"
+    linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
+    linker_section_placement_macros="FLASH_START=0x1b000;SRAM_START=0x200022d8"
+    linker_section_placements_segments="FLASH RX 0x00000000 0x00040000;SRAM RWX 0x20000000 0x00008000" />
+  <configuration
+    Name="nRF52832_XXAA Target Settings"
+    arm_architecture="v7EM"
+    arm_core_type="Cortex-M4"
+    arm_endian="Little"
+    arm_fp_abi="Hard"
+    arm_fpu_type="FPv4-SP-D16"
+    arm_target_device_name="nRF52832_xxAA"
+    c_preprocessor_definitions="NRF52_PAN_1;NRF52_PAN_2;NRF52_PAN_3;NRF52_PAN_4;NRF52_PAN_7;NRF52_PAN_8;NRF52_PAN_9;NRF52_PAN_10;NRF52_PAN_11;NRF52_PAN_12;NRF52_PAN_15;NRF52_PAN_16;NRF52_PAN_17;NRF52_PAN_20;NRF52_PAN_23;NRF52_PAN_24;NRF52_PAN_25;NRF52_PAN_26;NRF52_PAN_27;NRF52_PAN_28;NRF52_PAN_29;NRF52_PAN_30;NRF52_PAN_32;NRF52_PAN_33;NRF52_PAN_34;NRF52_PAN_35;NRF52_PAN_36;NRF52_PAN_37;NRF52_PAN_38;NRF52_PAN_39;NRF52_PAN_40;NRF52_PAN_41;NRF52_PAN_42;NRF52_PAN_43;NRF52_PAN_44;NRF52_PAN_46;NRF52_PAN_47;NRF52_PAN_48;NRF52_PAN_49;NRF52_PAN_58;NRF52_PAN_63;NRF52_PAN_64;NRF52_PAN_65;NRF52;NRF52832;S132;NRF_SD_BLE_API_VERSION=3;CONFIG_GPIO_AS_PINRESET;BOARD_PCA10040"
+    c_user_include_directories="../lib/softdevice/s132/headers"
+    debug_additional_load_file="$(SolutionDir)/../lib/softdevice/s132/hex/s132_nrf52_3.0.0_softdevice.hex"
+    debug_target_connection="J-Link"
+    hidden="Yes"
+    linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
+    linker_section_placement_macros="FLASH_START=0x1f000;SRAM_START=0x200022d8"
+    linker_section_placements_segments="FLASH RX 0x00000000 0x00080000;SRAM RWX 0x20000000 0x00010000" />
+  <configuration
+    Name="Common Debug Settings"
+    arm_use_builtins="Yes"
+    gcc_debugging_level="Level 3"
+    gcc_omit_frame_pointer="No"
+    gcc_optimization_level="Debug"
+    hidden="Yes" />
+  <configuration
+    Name="Common Release Settings"
+    arm_use_builtins="Yes"
+    gcc_debugging_level="None"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Optimize For Size"
+    hidden="Yes" />
+  <configuration
+    Name="Common"
+    arm_target_interface_type="SWD"
+    c_preprocessor_definitions="SOFTDEVICE_PRESENT;BLE_STACK_SUPPORT_REQD"
+    c_user_include_directories=".;../toolchain;../toolchain/cmsis/include;../toolchain/device;../mesh/api;../mesh/include/access;../mesh/include/core;../mesh/include/prov;../mesh/include/dfu;../mesh/models/config/include;hal/include;models/simple_on_off/include;../lib/rtt/include;../lib/micro-ecc"
+    debug_start_from_entry_point_symbol="No"
+    linker_output_format="hex"
+    speed="12000" />
+</solution>

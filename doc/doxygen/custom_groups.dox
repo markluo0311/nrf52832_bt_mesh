@@ -1,0 +1,34 @@
+/**
+ * @defgroup MESH_API_GROUP_DFU    DFU
+ * Device firmware upgrade module for the mesh
+ *
+ * @defgroup MESH_API_GROUP_PROV   Provisioning
+ * Device provisioning module for the mesh.
+ *
+ * @defgroup MESH_API_GROUP_SERIAL Serial
+ * Serialization of the mesh API.
+ * For a full reference of the available mesh serial commands and events, see the @ref md_doc_libraries_serial documentation.
+ *
+ * @defgroup MESH_API_GROUP_CORE   Core
+ * Core mesh modules, implementing mesh message passing.
+ *
+ * @defgroup MESH_API_GROUP_ACCESS Access
+ * Access layer module for the mesh.
+ *
+ * @defgroup MESH_CORE             Core components
+ * Mesh Core components, used for mesh message passing.
+ * @{
+ * @ingroup MESH_API_GROUP_CORE
+ * @}
+ *
+ * @defgroup CONFIG_MODEL Configuration Model
+ * The configuration model provides functionality that allows nodes to be configured
+ * or configure other nodes.
+ *
+ * @page LIBRARIES Libraries
+ * @{
+ * - @subpage md_doc_libraries_flash_manager
+ * - @subpage md_doc_libraries_serial
+ * @}
+ *
+ */

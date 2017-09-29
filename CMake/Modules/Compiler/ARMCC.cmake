@@ -1,0 +1,19 @@
+# This file is processed when the ARMCC compiler is used for a C or C++ file
+
+if(_ARMCC_CMAKE_LOADED)
+  return()
+endif()
+set(_ARMCC_CMAKE_LOADED TRUE)
+
+get_filename_component(_CMAKE_C_TOOLCHAIN_LOCATION "${CMAKE_C_COMPILER}" PATH)
+get_filename_component(_CMAKE_CXX_TOOLCHAIN_LOCATION "${CMAKE_CXX_COMPILER}" PATH)
+
+set(CMAKE_EXECUTABLE_SUFFIX ".elf")
+
+find_program(CMAKE_ARMCC_LINKER armlink HINTS "${_CMAKE_C_TOOLCHAIN_LOCATION}" "${_CMAKE_CXX_TOOLCHAIN_LOCATION}" )
+find_program(CMAKE_ARMCC_AR armar HINTS "${_CMAKE_C_TOOLCHAIN_LOCATION}" "${_CMAKE_CXX_TOOLCHAIN_LOCATION}"  )
+
+set(CMAKE_LINKER "${CMAKE_ARMCC_LINKER}" CACHE FILEPATH "The ARMCC linker" FORCE)
+mark_as_advanced(CMAKE_ARMCC_LINKER)
+set(CMAKE_AR "${CMAKE_ARMCC_AR}" CACHE FILEPATH "The ARMCC archiver" FORCE)
+mark_as_advanced(CMAKE_ARMCC_AR)
