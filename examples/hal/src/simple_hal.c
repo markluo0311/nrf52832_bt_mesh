@@ -129,10 +129,16 @@ void hal_led_blink_ms(uint32_t led_mask, uint32_t delay_ms, uint32_t repeat)
 
 void hal_leds_init(void)
 {
+    //add by mluo
+    //P0.25 set as led pin , initinal low
+    NRF_GPIO->PIN_CNF[25] = LED_PIN_CONFIG;
+    NRF_GPIO->OUTCLR = 1UL << 25;
+
     for (uint32_t i = LED_START; i <= LED_STOP; ++i)
     {
         NRF_GPIO->PIN_CNF[i] = LED_PIN_CONFIG;
         NRF_GPIO->OUTSET = 1UL << i;
+        //NRF_GPIO->OUTSET |= 1UL << i; //mluo
     }
 }
 
